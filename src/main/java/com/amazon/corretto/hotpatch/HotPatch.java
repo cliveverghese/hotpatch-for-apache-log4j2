@@ -13,10 +13,10 @@
  * permissions and limitations under the License.
  */
 
-import com.amazon.corretto.hotpatch.HotPatchMain;
+package com.amazon.corretto.hotpatch;
 
-public class Log4jHotPatch17 {
-    public static void main(String[] args) throws Exception {
-        HotPatchMain.main(args);
-    }
+public interface HotPatch {
+    String getName();
+    boolean isValidClass(String className);
+    byte[] apply(byte[] classfileBuffer);
 }
