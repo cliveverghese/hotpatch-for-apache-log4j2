@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.amazon.corretto.hotpatch.log4j2.Log4j2NoJndiLookup;
+import com.amazon.corretto.hotpatch.log4j2.Log4jDisableLiteralPatternConverter;
 
 import static com.amazon.corretto.hotpatch.Logger.log;
 
@@ -44,6 +45,7 @@ public class HotPatchAgent {
     List<HotPatch> patches = new ArrayList<>();
     if (Log4j2NoJndiLookup.isEnabled(args)) {
       patches.add(new Log4j2NoJndiLookup());
+      patches.add(new Log4jDisableLiteralPatternConverter());
     }
     return patches;
   }

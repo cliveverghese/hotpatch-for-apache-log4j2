@@ -1,0 +1,17 @@
+<Configuration>
+    <Appenders>
+        <Console name="STDOUT">
+            <PatternLayout pattern="%X{myvar} %m%n : " />
+        </Console>
+        <Routing name="routing">
+            <Routes>
+                <Route ref="STDOUT" />
+            </Routes>
+        </Routing>
+    </Appenders>
+    <Loggers>
+        <Root level="error">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>
