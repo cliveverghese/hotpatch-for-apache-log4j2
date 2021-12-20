@@ -129,6 +129,14 @@ function verify_dos_test() {
     cat /tmp/vuln2.log
     exit 1
   fi
+    if grep -q '${ctx:myvar} - Patched JndiLookup::lookup()' /tmp/vuln2.log
+  then
+    echo "Test passed. Patched JndiLookup::lookup"
+  else
+    echo "Test failed. Did not patch JndiLookup"
+    cat /tmp/vuln2.log
+    exit 1
+  fi
 }
 
 if [[ $# -lt 2 ]]; then
