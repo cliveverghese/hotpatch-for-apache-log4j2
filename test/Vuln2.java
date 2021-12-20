@@ -8,6 +8,6 @@ public class Vuln2 {
         // Have an appender that reads myvar configured like
         // appender.console.layout.pattern = ${ctx:myvar} - %m%n
         ThreadContext.put("myvar", "${${ctx:myvar}}");
-        logger.error("Any string ${sys:user.name}");
+        logger.error("Any string");
     }
 }
